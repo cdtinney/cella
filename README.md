@@ -2,7 +2,9 @@ KnightsWhoSayNi
 ===============
 
 Brayden Girard
+
 Colin Tinney
+
 Adam Bennett
 
 TA: Bjorn Vardal
