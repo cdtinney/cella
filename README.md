@@ -1,11 +1,11 @@
 KnightsWhoSayNi
 ===============
 
-Brayden Girard
-
 Colin Tinney
 
 Adam Bennett
+
+Brayden Girard (Dropped)
 
 TA: Bjorn Vardal
 
