@@ -7,7 +7,7 @@ Adam Bennett
 
 Brayden Girard (Dropped)
 
-TA: Bjorn Vardal
+TA: Furkan Alaca
 
 cella
 =============
