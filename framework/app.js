@@ -44,10 +44,20 @@ app.get('/selectCA', function(req, res){
   db.open(function(err, db) {
     if(!err) {         
       db.collection('maps', function(err, collectionref) {            
-        var cursor = collectionref.find();
+        var cursor = collectionref.find({}, {cells:false});
         cursor.toArray(function(err, docs) {
           console.log(docs);
           res.sendfile("public/html/selectCA.html");
+          var ddlMap = '<select>';
+          for (var i = 0; i < cursor.length; i++)
+          {
+            ddlMap = ddlMap + '<option value="';
+            ddlMap = ddlMap + cursor[i]._id + '"';
+            ddlMap = ddlMap + cursor[i].name;
+            ddlMap = ddlMap + '></option>';
+          }
+          ddlMap = ddlMap + '</select>';
+          res.write(ddlMap);
         });
       });
     }
