@@ -1,13 +1,14 @@
 ca = {
 	map: {},
-	rules: [
-		[0,0],
-		[1,1],
-		[2,1],
-		[3,2],
-		[4,0],
-		[5,4],
-		[6,5]],
+	rules: [	//format: [current cell type, surrounding cell type, number of surrounding cells of given type, resulting cell]
+		[1,1,0,0],
+		[1,1,1,0],
+		[1,1,4,0],
+		[1,1,5,0],
+		[1,1,6,0],
+		[1,1,7,0],
+		[1,1,8,0],
+		[0,1,3,1]],
 	
 	printToPage: function()
 	{
@@ -31,26 +32,31 @@ ca = {
 		{
 			for (var j = 0; j < this.map.cells[i].length; j++)
 			{
-				var n = 0;
-				if (j > 0) n = oldCells[i][j - 1];
-				var e = 0;
-				if (i < oldCells.length - 1) e = oldCells[i + 1][j];
-				var s = 0;
-				if (j < oldCells[i].length - 1) s = oldCells[i][j + 1];
-				var w = 0;
-				if (i > 0) w = oldCells[i - 1][j];
-				var count = n + e + s + w;
-				var result = 0;
+				var counts = [0,0,0,0,0,0,0,0,0,0];
+
+				if (j > 0) counts[oldCells[i][j - 1]]++;
+				if (i < oldCells.length - 1) counts[oldCells[i + 1][j]]++;
+				if (j < oldCells[i].length - 1) counts[oldCells[i][j + 1]]++;
+				if (i > 0) counts[oldCells[i - 1][j]]++;
+				if (j > 0 && i < oldCells.length - 1) counts[oldCells[i + 1][j - 1]]++;
+				if (j < oldCells[i].length - 1 && i < oldCells.length - 1) counts[oldCells[i + 1][j + 1]]++;
+				if (j < oldCells[i].length - 1 && i > 0) counts[oldCells[i - 1][j + 1]]++;
+				if (j > 0 && i > 0) counts[oldCells[i - 1][j - 1]]++;
+
+				var result = oldCells[i][j];
 				for (var z = 0; z < this.rules.length; z++)
 				{
-					if (this.rules[z][0] == count)
+					if (this.rules[z][0] == oldCells[i][j])
 					{
-						result = this.rules[z][1];
+						if (counts[this.rules[z][1]] == this.rules[z][2])
+						{
+							result = this.rules[z][3];
+						}
 					}
 				}
 				this.map.cells[i][j] = result;
 			}
 		}
-		this.refresh()
+		this.refresh();
 	}
 }

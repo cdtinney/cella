@@ -35,8 +35,7 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-app.get('/selectCA', function(req, res){
-  //var mongo = require('mongodb'),
+app.get('/maps', function(req, res){
   Server = mongo.Server,
   Db = mongo.Db;
   var server = new Server('localhost', 27017, {auto_reconnect: true});
@@ -46,18 +45,42 @@ app.get('/selectCA', function(req, res){
       db.collection('maps', function(err, collectionref) {            
         var cursor = collectionref.find({}, {cells:false});
         cursor.toArray(function(err, docs) {
-          console.log(docs);
-          res.sendfile("public/html/selectCA.html");
-          var ddlMap = '<select>';
-          for (var i = 0; i < cursor.length; i++)
+          var mapOptions = '';
+          for (var i = 0; i < docs.length; i++)
           {
-            ddlMap = ddlMap + '<option value="';
-            ddlMap = ddlMap + cursor[i]._id + '"';
-            ddlMap = ddlMap + cursor[i].name;
-            ddlMap = ddlMap + '></option>';
+            mapOptions = mapOptions + '<option value="';
+            mapOptions = mapOptions + docs[i]._id + '">';
+            mapOptions = mapOptions + docs[i].name;
+            mapOptions = mapOptions + '</option>';
           }
-          ddlMap = ddlMap + '</select>';
-          res.write(ddlMap);
+          console.log(mapOptions);
+          res.send(mapOptions);
+        });
+      });
+    }
+  });
+});
+
+app.get('/rules', function(req, res){
+  Server = mongo.Server,
+  Db = mongo.Db;
+  var server = new Server('localhost', 27017, {auto_reconnect: true});
+  var db = new Db('celladb', server);
+  db.open(function(err, db) {
+    if(!err) {         
+      db.collection('rules', function(err, collectionref) {            
+        var cursor = collectionref.find({}, {rules:false});
+        cursor.toArray(function(err, docs) {
+          var rules = '';
+          for (var i = 0; i < docs.length; i++)
+          {
+            rules = rules + '<option value="';
+            rules = rules + docs[i]._id + '">';
+            rules = rules + docs[i].name;
+            rules = rules + '</option>';
+          }
+          console.log(rules);
+          res.send(rules);
         });
       });
     }
