@@ -97,11 +97,17 @@ app.get('/mapCells', function(req, res){
     if(!err) {         
       db.collection('maps', function(err, collectionref) {
         var BSON = mongo.BSONPure;
-        var o_id = new BSON.ObjectID(query['id']);
-        var cursor = collectionref.find({_id: o_id});
-        cursor.toArray(function(err, docs) {
-          res.send(docs[0].cells);
-        });
+		if (query['id'].length > 0)
+		{
+			var o_id = new BSON.ObjectID(query['id']);
+			var cursor = collectionref.find({_id: o_id});
+			cursor.toArray(function(err, docs) {
+			  if (docs[0] != null && docs[0] != undefined)
+			  {
+				res.send(docs[0].cells);
+			  }
+			});
+		}
       });
     }
   });

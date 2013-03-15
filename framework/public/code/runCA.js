@@ -16,9 +16,9 @@ $(document).ready(function()
 {
 	var mapId = getParameterByName('map');
 	var rulesId = getParameterByName('rules');
+	ca.map = map;
 	var mcells = $.get('/mapCells', 'id=' + mapId, function()
 	{
-		ca.map = map;
 		ca.map.cells = JSON.parse(mcells.responseText);
 		ca.printToPage();
 	});

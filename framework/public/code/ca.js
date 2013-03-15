@@ -1,6 +1,11 @@
 ca = {
 	map: {},
-	rules: [	//format: [current cell type, surrounding cell type, number of surrounding cells of given type, resulting cell]
+	// format:
+	// [current cell type, 
+	//    surrounding cell type,
+	//    number of surrounding cells of given type,
+	//    resulting cell type]
+	rules: [	
 		[1,1,0,0],
 		[1,1,1,0],
 		[1,1,4,0],

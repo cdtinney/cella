@@ -42,7 +42,6 @@ map = {
 
 	refresh: function()
 	{		
-
 		for (var i = 0; i < this.cells.length; i++)
 		{
 			for (var j = 0; j < this.cells[i].length; j++)
