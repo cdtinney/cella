@@ -36,7 +36,7 @@ http.createServer(app).listen(app.get('port'), function(){
 });
 
 app.get('/maps', function(req, res){
-  Server = mongo.Server,
+  Server = mongo.Server;
   Db = mongo.Db;
   var server = new Server('localhost', 27017, {auto_reconnect: true});
   var db = new Db('celladb', server);
@@ -53,7 +53,6 @@ app.get('/maps', function(req, res){
             mapOptions = mapOptions + docs[i].name;
             mapOptions = mapOptions + '</option>';
           }
-          console.log(mapOptions);
           res.send(mapOptions);
         });
       });
@@ -62,7 +61,7 @@ app.get('/maps', function(req, res){
 });
 
 app.get('/rules', function(req, res){
-  Server = mongo.Server,
+  Server = mongo.Server;
   Db = mongo.Db;
   var server = new Server('localhost', 27017, {auto_reconnect: true});
   var db = new Db('celladb', server);
@@ -79,8 +78,29 @@ app.get('/rules', function(req, res){
             rules = rules + docs[i].name;
             rules = rules + '</option>';
           }
-          console.log(rules);
           res.send(rules);
+        });
+      });
+    }
+  });
+});
+
+app.get('/mapCells', function(req, res){
+  var url = require('url');
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+  Server = mongo.Server;
+  Db = mongo.Db;
+  var server = new Server('localhost', 27017, {auto_reconnect: true});
+  var db = new Db('celladb', server);
+  db.open(function(err, db) {
+    if(!err) {         
+      db.collection('maps', function(err, collectionref) {
+        var BSON = mongo.BSONPure;
+        var o_id = new BSON.ObjectID(query['id']);
+        var cursor = collectionref.find({_id: o_id});
+        cursor.toArray(function(err, docs) {
+          res.send(docs[0].cells);
         });
       });
     }
