@@ -9,3 +9,8 @@ $(document).ready(function()
 		$("#ddlRules").append(rules.responseText);
 	});
 });
+
+function run()
+{
+	window.location.href = 'runCA.html?map=' + $('#ddlMaps').val() + '&rules=' + $('#ddlRules').val();
+}
