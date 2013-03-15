@@ -8,6 +8,9 @@ $(document).ready(function()
 	{
 		$("#ddlRules").append(rules.responseText);
 	});
+	
+	// jquery UI
+	applyUI();
 });
 
 function run()

@@ -39,7 +39,7 @@ $(document).ready(function()
 			ca.printToPage();
 		});
 	});
-	
+	applyUI();
 });
 
 // tick ca automatically
