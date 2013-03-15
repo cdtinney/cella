@@ -37,7 +37,7 @@ map = {
 			}
 		}		
 
-		$("html").append(table);
+		$("#divCA").html(table);
 	},
 
 	refresh: function()

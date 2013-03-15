@@ -1,19 +1,8 @@
 ca = {
 	map: {},
-	// format:
-	// [current cell type, 
-	//    surrounding cell type,
-	//    number of surrounding cells of given type,
-	//    resulting cell type]
-	rules: [	
-		[1,1,0,0],
-		[1,1,1,0],
-		[1,1,4,0],
-		[1,1,5,0],
-		[1,1,6,0],
-		[1,1,7,0],
-		[1,1,8,0],
-		[0,1,3,1]],
+	rules: [],
+	autoTicking: false,
+	tickInterval: 100,
 	
 	printToPage: function()
 	{
@@ -25,6 +14,7 @@ ca = {
 		this.map.refresh();
 	},
 
+	// Single tick
 	tick: function()
 	{
 		var oldCells = this.map.cells.slice();
@@ -39,14 +29,22 @@ ca = {
 			{
 				var counts = [0,0,0,0,0,0,0,0,0,0];
 
-				if (j > 0) counts[oldCells[i][j - 1]]++;
-				if (i < oldCells.length - 1) counts[oldCells[i + 1][j]]++;
-				if (j < oldCells[i].length - 1) counts[oldCells[i][j + 1]]++;
-				if (i > 0) counts[oldCells[i - 1][j]]++;
-				if (j > 0 && i < oldCells.length - 1) counts[oldCells[i + 1][j - 1]]++;
-				if (j < oldCells[i].length - 1 && i < oldCells.length - 1) counts[oldCells[i + 1][j + 1]]++;
-				if (j < oldCells[i].length - 1 && i > 0) counts[oldCells[i - 1][j + 1]]++;
-				if (j > 0 && i > 0) counts[oldCells[i - 1][j - 1]]++;
+				if (j > 0) 
+					counts[oldCells[i][j - 1]]++;
+				if (i < oldCells.length - 1)
+					counts[oldCells[i + 1][j]]++;
+				if (j < oldCells[i].length - 1)
+					counts[oldCells[i][j + 1]]++;
+				if (i > 0) 
+					counts[oldCells[i - 1][j]]++;
+				if (j > 0 && i < oldCells.length - 1) 
+					counts[oldCells[i + 1][j - 1]]++;
+				if (j < oldCells[i].length - 1 && i < oldCells.length - 1) 
+					counts[oldCells[i + 1][j + 1]]++;
+				if (j < oldCells[i].length - 1 && i > 0) 
+					counts[oldCells[i - 1][j + 1]]++;
+				if (j > 0 && i > 0) 
+					counts[oldCells[i - 1][j - 1]]++;
 
 				var result = oldCells[i][j];
 				for (var z = 0; z < this.rules.length; z++)
@@ -64,31 +62,10 @@ ca = {
 		}
 	},
 
-	tick1: function()
+	// Tick for specified number
+	tickForAmount: function(numTicks)
 	{
-		this.tick();
-		this.refresh();
-	},
-
-	tick10: function()
-	{
-		for (var i=0; i<10; i++)
-			this.tick();
-
-		this.refresh();
-	},
-
-	tick100: function()
-	{
-		for (var i=0; i<100; i++)
-			this.tick();
-
-		this.refresh();
-	},
-
-	tick1000: function()
-	{
-		for (var i=0; i<1000; i++)
+		for (var i=0; i<numTicks; i++)
 			this.tick();
 
 		this.refresh();

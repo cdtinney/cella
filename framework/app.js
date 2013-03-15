@@ -112,3 +112,31 @@ app.get('/mapCells', function(req, res){
     }
   });
 });
+
+app.get('/mapRules', function(req, res){
+  var url = require('url');
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+  Server = mongo.Server;
+  Db = mongo.Db;
+  var server = new Server('localhost', 27017, {auto_reconnect: true});
+  var db = new Db('celladb', server);
+  db.open(function(err, db) {
+    if(!err) {         
+      db.collection('rules', function(err, collectionref) {
+        var BSON = mongo.BSONPure;
+		if (query['id'].length > 0)
+		{
+			var o_id = new BSON.ObjectID(query['id']);
+			var cursor = collectionref.find({_id: o_id});
+			cursor.toArray(function(err, docs) {
+			  if (docs[0] != null && docs[0] != undefined)
+			  {
+				res.send(docs[0].ruleset);
+			  }
+			});
+		}
+      });
+    }
+  });
+});

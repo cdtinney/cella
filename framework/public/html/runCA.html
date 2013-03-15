@@ -12,33 +12,36 @@
 
 	<body>
 		<div class = "level1bar">
-    		<div class = "title"> cella </div>
+    		<div class = "title"> <a class = "homepage" href="index.html"> cella </a> </div>
    		 </div>
 
    		 <div class = "level2bar">
 
 			<div class = "tickButton"> 
-				<button type="button" onClick="ca.tick1();">
+				<button type="button" onClick="autoTick();">
+					auto (on/off)
+				</button>
+				
+				<button type="button" onClick="ca.tickForAmount(1);">
 					1 tick
 				</button>
 
-				<button type="button" onClick="ca.tick10();">
+				<button type="button" onClick="ca.tickForAmount(10);">
 					10 ticks
 				</button>
 
-				<button type="button" onClick="ca.tick100();">
+				<button type="button" onClick="ca.tickForAmount(100);">
 					100 ticks
 				</button>
 
-				<button type="button" onClick="ca.tick1000();">
+				<button type="button" onClick="ca.tickForAmount(1000);">
 					1000 ticks
 				</button>
-
 			</div>
 
 		</div>
 
-		<div id="table_CA"> </div>
+		<div id="divCA"> </div>
 
 	</body>
 
