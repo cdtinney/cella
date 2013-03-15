@@ -35,7 +35,7 @@ map = {
 				$(td).attr("class", "cell" + this.cells[i][j]);
 				$(td).attr("id", "td" + i + j);
 			}
-		}
+		}		
 
 		$("html").append(table);
 	},

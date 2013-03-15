@@ -57,6 +57,35 @@ ca = {
 				this.map.cells[i][j] = result;
 			}
 		}
+	},
+
+	tick1: function()
+	{
+		this.tick();
+		this.refresh();
+	},
+
+	tick10: function()
+	{
+		for (var i=0; i<10; i++)
+			this.tick();
+
+		this.refresh();
+	},
+
+	tick100: function()
+	{
+		for (var i=0; i<100; i++)
+			this.tick();
+
+		this.refresh();
+	},
+
+	tick1000: function()
+	{
+		for (var i=0; i<1000; i++)
+			this.tick();
+
 		this.refresh();
 	}
 }

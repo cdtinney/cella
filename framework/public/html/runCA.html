@@ -1,15 +1,45 @@
-<!DOCTYPE html/>
+<!DOCTYPE HTML>
 <html>
+
 	<head> 
 		<script src="../code/jquery-1.9.1.js"></script>
 		<script src="../code/map.js"></script>
 		<script src="../code/ca.js"></script>
 		<script src="../code/runCA.js"></script>
 		<link rel="stylesheet" type="text/css" href="../stylesheets/runCA.css"/>
-	<head/>
+    	<link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+	</head>
+
 	<body>
-		<button type="button" onClick="ca.tick();">
-			TICK
-		</button>
+		<div class = "level1bar">
+    		<div class = "title"> cella </div>
+   		 </div>
+
+   		 <div class = "level2bar">
+
+			<div class = "tickButton"> 
+				<button type="button" onClick="ca.tick1();">
+					1 tick
+				</button>
+
+				<button type="button" onClick="ca.tick10();">
+					10 ticks
+				</button>
+
+				<button type="button" onClick="ca.tick100();">
+					100 ticks
+				</button>
+
+				<button type="button" onClick="ca.tick1000();">
+					1000 ticks
+				</button>
+
+			</div>
+
+		</div>
+
+		<div id="table_CA"> </div>
+
 	</body>
+
 </html>
