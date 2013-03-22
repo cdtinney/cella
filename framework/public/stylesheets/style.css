@@ -39,16 +39,16 @@ html {
 	color: #FFFFFF;
 }
 
-#select {
+.menuBar {
 	/* Positioning */
 	position: relative;
 
 	/* Display */
 	padding-top:  8px;
-	padding-left: 10px;
+	padding-left: 8px;
 }
 
-#divRunCA  {
+.indexMenu  {
 	/* Positioning */
 	position: relative;
 
@@ -58,7 +58,7 @@ html {
 	padding-top: 8px;
 }
 
-#divRunCA a {
+.indexMenu a {
 	/* Text & Colour */
 	font-family:"Arial", sans-serif;
 	text-decoration: none;

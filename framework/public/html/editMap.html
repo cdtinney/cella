@@ -2,20 +2,24 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/CA.css"/>
 		<script src="../code/jquery-1.9.1.js"></script>
+		<script src="../code/editableMap.js"></script>
+		<script src="../code/editMap.js"></script>
 	</head>
     <body>
     	<div class = "level1bar">
     		<div class = "title"><a href="../html/index.html" class="homepage">cella</a></div>
    		</div>
    		<div class = "level2bar">
-   			<div class="indexMenu">
-				<a href="../html/selectCA.html">run a CA</a>
-			</div>
-   			<div class="indexMenu">
-				<a href="../html/editMap.html">edit initial configuration</a>
+			<div class="menuBar">
+				<input id="txtName" type="text"/>
+				<button type="button" onClick="saveMap();">
+					Save Configuration
+				</button>
 			</div>
 		</div>
+		<div id="divCA"> </div>
     </body>
 
 </html>

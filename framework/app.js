@@ -140,3 +140,17 @@ app.get('/mapRules', function(req, res){
     }
   });
 });
+
+app.post('/mapCells', function(req, res){
+  Server = mongo.Server;
+  Db = mongo.Db;
+  var server = new Server('localhost', 27017, {auto_reconnect: true});
+  var db = new Db('celladb', server);
+  db.open(function(err, db) {
+    if(!err) {         
+      db.collection('maps', function(err, collectionref) {
+		collectionref.insert(req.body);
+      });
+    }
+  });
+});
