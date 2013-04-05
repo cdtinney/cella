@@ -27,24 +27,10 @@ ca = {
 		{
 			for (var j = 0; j < this.map.cells[i].length; j++)
 			{
-				var counts = [0,0,0,0,0,0,0,0,0,0];
 
-				if (j > 0) 
-					counts[oldCells[i][j - 1]]++;
-				if (i < oldCells.length - 1)
-					counts[oldCells[i + 1][j]]++;
-				if (j < oldCells[i].length - 1)
-					counts[oldCells[i][j + 1]]++;
-				if (i > 0) 
-					counts[oldCells[i - 1][j]]++;
-				if (j > 0 && i < oldCells.length - 1) 
-					counts[oldCells[i + 1][j - 1]]++;
-				if (j < oldCells[i].length - 1 && i < oldCells.length - 1) 
-					counts[oldCells[i + 1][j + 1]]++;
-				if (j < oldCells[i].length - 1 && i > 0) 
-					counts[oldCells[i - 1][j + 1]]++;
-				if (j > 0 && i > 0) 
-					counts[oldCells[i - 1][j - 1]]++;
+				counts = [0,0,0,0,0,0,0,0,0,0];
+				//this.getSurrounding(counts, oldCells, i, j);
+				this.getSurroundingWrap(counts, oldCells, i, j);
 
 				var result = oldCells[i][j];
 				for (var z = 0; z < this.rules.length; z++)
@@ -60,6 +46,49 @@ ca = {
 				this.map.cells[i][j] = result;
 			}
 		}
+	},
+
+	getSurrounding: function(counts, oldCells, i, j)
+	{
+		if (j > 0) 
+			counts[oldCells[i][j - 1]]++;
+		if (i < oldCells.length - 1)
+			counts[oldCells[i + 1][j]]++;
+		if (j < oldCells[i].length - 1)
+			counts[oldCells[i][j + 1]]++;
+		if (i > 0) 
+			counts[oldCells[i - 1][j]]++;
+		if (j > 0 && i < oldCells.length - 1) 
+			counts[oldCells[i + 1][j - 1]]++;
+		if (j < oldCells[i].length - 1 && i < oldCells.length - 1) 
+			counts[oldCells[i + 1][j + 1]]++;
+		if (j < oldCells[i].length - 1 && i > 0) 
+			counts[oldCells[i - 1][j + 1]]++;
+		if (j > 0 && i > 0) 
+			counts[oldCells[i - 1][j - 1]]++;
+	},
+
+	getSurroundingWrap: function(counts, oldCells, i, j)
+	{
+		if (j > 0) 
+			counts[oldCells[i][j - 1]]++;
+		else
+			counts[oldCells[i][oldCells[i].length - 1]]++;
+			
+		if (i < oldCells.length - 1)
+			counts[oldCells[i + 1][j]]++;
+		else
+			counts[oldCells[0][j]]++;
+
+		if (j < oldCells[i].length - 1)
+			counts[oldCells[i][j + 1]]++;
+		else
+			counts[oldCells[i][0]]++;
+
+		if (i > 0) 
+			counts[oldCells[i - 1][j]]++;
+		else
+			counts[oldCells[oldCells.length - 1][j]]++;
 	},
 
 	// Tick for specified number

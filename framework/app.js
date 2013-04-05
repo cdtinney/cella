@@ -104,6 +104,7 @@ app.get('/mapCells', function(req, res){
 			cursor.toArray(function(err, docs) {
 			  if (docs[0] != null && docs[0] != undefined)
 			  {
+				console.log(docs[0].cells);
 				res.send(docs[0].cells);
 			  }
 			});
@@ -132,6 +133,7 @@ app.get('/mapRules', function(req, res){
 			cursor.toArray(function(err, docs) {
 			  if (docs[0] != null && docs[0] != undefined)
 			  {
+				console.log(docs[0].ruleset);
 				res.send(docs[0].ruleset);
 			  }
 			});
@@ -142,6 +144,7 @@ app.get('/mapRules', function(req, res){
 });
 
 app.post('/mapCells', function(req, res){
+  console.log(req.body);
   Server = mongo.Server;
   Db = mongo.Db;
   var server = new Server('localhost', 27017, {auto_reconnect: true});

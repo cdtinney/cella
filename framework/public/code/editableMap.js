@@ -22,7 +22,10 @@ editableMap = {
 
 	printToPage: function()
 	{ 
+		$("#divCA").html();
+
 		var table = document.createElement('table');
+		$(table).attr("id", "tblCA");
 
 		for (var i = 0; i < this.cells.length; i++)
 		{

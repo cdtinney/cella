@@ -54,23 +54,23 @@ function saveRules()
 	
 	$('.divRule').each(function(index)
 	{
-		var rule = [];
+		var rule = [0, 0, 0, 0];
 		if ($(this).find('#btnTarget').attr('class') == 'state0')
-			rule.push(0);
+			rule[0] = Number(0);
 		else if ($(this).find('#btnTarget').attr('class') == 'state1')
-			rule.push(1);
+			rule[0] = Number(1);
 
-		rule.push($(this).find('#ddlSurround option:selected').text());
+		rule[1] = ($(this).find('#ddlSurround option:selected').text());
 
 		if ($(this).find('#btnSurround').attr('class') == 'state0')
-			rule.push(0);
+			rule[2] = Number(0);
 		else if ($(this).find('#btnSurround').attr('class') == 'state1')
-			rule.push(1);
+			rule[2] = Number(1);
 
 		if ($(this).find('#btnResult').attr('class') == 'state0')
-			rule.push(0);
+			rule[3] = Number(0);
 		else if ($(this).find('#btnResult').attr('class') == 'state1')
-			rule.push(1);
+			rule[3] = Number(1);
 
 		rulesToSave.ruleset.push(rule);
 	});

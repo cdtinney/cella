@@ -13,3 +13,8 @@
 #divCA {
 	position: relative;
 }
+
+#tblCA {
+	border-style: solid;
+	border-width: 1px;
+}
