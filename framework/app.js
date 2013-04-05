@@ -154,3 +154,18 @@ app.post('/mapCells', function(req, res){
     }
   });
 });
+
+app.post('/mapRules', function(req, res){
+  console.log(req.body);
+  Server = mongo.Server;
+  Db = mongo.Db;
+  var server = new Server('localhost', 27017, {auto_reconnect: true});
+  var db = new Db('celladb', server);
+  db.open(function(err, db) {
+    if(!err) {         
+      db.collection('rules', function(err, collectionref) {
+		collectionref.insert(req.body);
+      });
+    }
+  });
+});
