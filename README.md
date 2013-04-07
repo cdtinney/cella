@@ -1,8 +1,8 @@
 # Cella
 
-## team: KnightsWhoSayNi
+## by: KnightsWhoSayNi
 
-### members: Adam Bennett (#100852702), Colin Tinney (#100852617), Brayden Girard (dropped)
+### Adam Bennett (#100852702), Colin Tinney (#100852617), Brayden Girard (dropped)
 
 ## summary
 
