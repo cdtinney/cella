@@ -55,6 +55,7 @@ function saveRules()
 	$('.divRule').each(function(index)
 	{
 		var rule = [0, 0, 0, 0];
+		
 		if ($(this).find('#btnTarget').attr('class') == 'state0')
 			rule[0] = Number(0);
 		else if ($(this).find('#btnTarget').attr('class') == 'state1')

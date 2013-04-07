@@ -28,7 +28,7 @@ ca = {
 			for (var j = 0; j < this.map.cells[i].length; j++)
 			{
 
-				counts = [0,0,0,0,0,0,0,0,0,0];
+				var counts = [0,0,0,0,0,0,0,0,0,0];
 				//this.getSurrounding(counts, oldCells, i, j);
 				this.getSurroundingWrap(counts, oldCells, i, j);
 
@@ -37,7 +37,7 @@ ca = {
 				{
 					if (this.rules[z][0] == oldCells[i][j])
 					{
-						if (counts[this.rules[z][1]] == this.rules[z][2])
+						if (counts[this.rules[z][2]] == this.rules[z][1])
 						{
 							result = this.rules[z][3];
 						}
@@ -70,25 +70,82 @@ ca = {
 
 	getSurroundingWrap: function(counts, oldCells, i, j)
 	{
+		// top
 		if (j > 0) 
 			counts[oldCells[i][j - 1]]++;
 		else
 			counts[oldCells[i][oldCells[i].length - 1]]++;
-			
+		
+		// right
 		if (i < oldCells.length - 1)
 			counts[oldCells[i + 1][j]]++;
 		else
 			counts[oldCells[0][j]]++;
-
+			
+		// bottom
 		if (j < oldCells[i].length - 1)
 			counts[oldCells[i][j + 1]]++;
 		else
 			counts[oldCells[i][0]]++;
 
+		// left
 		if (i > 0) 
 			counts[oldCells[i - 1][j]]++;
 		else
 			counts[oldCells[oldCells.length - 1][j]]++;
+		
+		// top right
+		if (j > 0 && i < oldCells.length - 1)
+			counts[oldCells[i + 1][j - 1]]++;
+		else
+		{
+			if (j <= 0 && i > oldCells.length - 1)
+				counts[oldCells[0][oldCells[0].length - 1]]++;
+			if (j > 0 && i > oldCells.length - 1)
+				counts[oldCells[0][j -1]]++;
+			if (j < 0 && i < oldCells.length - 1)
+				counts[oldCells[i + 1][oldCells[i].length - 1]]++;
+		}
+		
+		// bottom right
+		if (j < oldCells[i].length - 1 && i < oldCells.length - 1) 
+			counts[oldCells[i + 1][j + 1]]++;
+		else
+		{
+			if (j >= oldCells[i].length - 1 && i >= oldCells.length - 1)
+				counts[oldCells[0][0]]++;
+			if (j < oldCells[i].length - 1 && i >= oldCells.length - 1)
+				counts[oldCells[0][j + 1]]++;
+			if (j >= oldCells[i].length - 1 && i < oldCells.length - 1)
+				counts[oldCells[i + 1][0]]++;
+		}
+		
+		// bottom left
+		if (j < oldCells[i].length - 1 && i > 0) 
+			counts[oldCells[i - 1][j + 1]]++;
+		else
+		{
+			if (i <= 0 && j <= 0)
+				counts[oldCells[oldCells.length - 1][0]]++;
+			if (i <= 0 && j < oldCells[i].length - 1)
+				counts[oldCells[oldCells.length - 1][j + 1]]++;
+			if (i > 0 && j >= oldCells[i].length - 1)
+				counts[oldCells[i - 1][0]]++;
+		}
+		
+		// top left
+		if (j > 0 && i > 0) 
+			counts[oldCells[i - 1][j - 1]]++;
+		else
+		{
+			if (j <= 0 && i <= 0)
+				counts[oldCells[oldCells.length-1][oldCells[i].length-1]]++;
+			if (j <= 0 && i > 0)
+				counts[oldCells[i - 1][oldCells[i].length - 1]]++;
+			if (j > 0 && i <= 0)
+				counts[oldCells[oldCells.length-1][j - 1]]++;
+		}
+		
 	},
 
 	// Tick for specified number

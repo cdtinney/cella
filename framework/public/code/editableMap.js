@@ -35,20 +35,24 @@ editableMap = {
 			{
 				var td = document.createElement('td');
 				$(tr).append(td);
-				$(td).attr("class", "cell" + this.cells[i][j]);
+				$(td).attr("class", "editCell" + this.cells[i][j]);
 				$(td).attr("id", "td" + i + "-" + j);
 				$(td).attr("i", i);
 				$(td).attr("j", j);
 				that = this;
 				$(td).on('click', function(eventData){
-					if (that.cells[$(this).attr('i')][$(this).attr('j')] == 0)
+				
+					var num = that.cells[$(this).attr('i')][$(this).attr('j')];
+					
+					num++;
+					
+					if (num >= 9)
 					{
-						that.cells[$(this).attr('i')][$(this).attr('j')] = 1;
+						num = 0;
 					}
-					else
-					{
-						that.cells[$(this).attr('i')][$(this).attr('j')] = 0;
-					}
+					
+					that.cells[$(this).attr('i')][$(this).attr('j')] = num;
+					
 					that.refresh();
 				});
 			}
@@ -63,7 +67,7 @@ editableMap = {
 		{
 			for (var j = 0; j < this.cells[i].length; j++)
 			{
-				$("#td" + i + "-" + j).attr("class", "cell" + this.cells[i][j]);
+				$("#td" + i + "-" + j).attr("class", "editCell" + this.cells[i][j]);
 			}
 		}
 	}

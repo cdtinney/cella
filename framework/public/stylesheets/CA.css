@@ -1,3 +1,60 @@
+.editCell0 {
+ 	background-color:#DEDEDE;
+ 	width:10px;
+ 	height:10px;
+	
+	border-style: solid;
+	border-width: 1px;
+}
+
+.editCell1 {
+ 	background-color:#000000;
+ 	width:10px;
+ 	height:10px;
+}
+
+.editCell2 {
+ 	background-color: #FF0000;
+ 	width:10px;
+ 	height:10px;
+}
+
+.editCell3 {
+ 	background-color: #00FF00;
+ 	width:10px;
+ 	height:10px;
+}
+
+.editCell4 {
+ 	background-color: #0000FF;
+ 	width:10px;
+ 	height:10px;
+}
+
+.editCell5 {
+ 	background-color: #FFFF00;
+ 	width:10px;
+ 	height:10px;
+}
+.editCell6 {
+ 	background-color: #00FFFF;
+ 	width:10px;
+ 	height:10px;
+}
+
+.editCell7 {
+ 	background-color: #FF00FF;
+ 	width:10px;
+ 	height:10px;
+}
+
+.editCell8 {
+ 	background-color: #FF6600;
+ 	width:10px;
+ 	height:10px;
+}
+
+
 .cell0 {
  	background-color:#DEDEDE;
  	width:10px;
@@ -9,6 +66,47 @@
  	width:10px;
  	height:10px;
 }
+.cell2 {
+ 	background-color: #FF0000;
+ 	width:10px;
+ 	height:10px;
+}
+
+.cell3 {
+ 	background-color: #00FF00;
+ 	width:10px;
+ 	height:10px;
+}
+
+.cell4 {
+ 	background-color: #0000FF;
+ 	width:10px;
+ 	height:10px;
+}
+
+.cell5 {
+ 	background-color: #FFFF00;
+ 	width:10px;
+ 	height:10px;
+}
+.cell6 {
+ 	background-color: #00FFFF;
+ 	width:10px;
+ 	height:10px;
+}
+
+.cell7 {
+ 	background-color: #FF00FF;
+ 	width:10px;
+ 	height:10px;
+}
+
+.cell8 {
+ 	background-color: #FF6600;
+ 	width:10px;
+ 	height:10px;
+}
+
 
 #divCA {
 	position: relative;
