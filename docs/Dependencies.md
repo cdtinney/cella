@@ -1,6 +1,6 @@
 # Dependencies
 
-* #Express
+* ## Express
 	* Description
 		Minimal web application framework for node.js; built on Connect
 	* Usage
