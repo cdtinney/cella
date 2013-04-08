@@ -18,6 +18,7 @@ ca = {
 	tick: function()
 	{
 		var oldCells = this.map.cells.slice();
+		
 		for (var i = 0; i < oldCells.length; i++)
 		{
 			oldCells[i] = this.map.cells[i].slice();
