@@ -53,7 +53,10 @@ ca = {
 		this.tickCount++;
 
 		// Update the tick count display
-		$("#pTickCount").text(this.tickCount);
+		$("#aTickCount").text(this.tickCount);
+
+		// Update the population count display
+		$("#aPopulationCount").text(this.getPopulation());
 	},
 
 	getSurrounding: function(counts, oldCells, i, j)
@@ -154,6 +157,22 @@ ca = {
 				counts[oldCells[oldCells.length-1][j - 1]]++;
 		}
 		
+	},
+
+	getPopulation: function()
+	{
+		var count = 0;
+
+		for (var i = 0; i < this.map.cells.length; i++)
+		{
+			for (var j = 0; j < this.map.cells[i].length; j++)
+			{
+				if (this.map.cells[i][j] != 0)
+					count++;
+			}
+		}
+
+		return count;
 	},
 
 	// Tick for specified number

@@ -37,6 +37,9 @@ $(document).ready(function()
 			}
 			// Display the CA
 			ca.printToPage();
+			
+			// Set initial population count
+			$("#aPopulationCount").text(ca.getPopulation());
 		});
 	});
 });
