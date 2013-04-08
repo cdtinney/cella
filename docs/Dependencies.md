@@ -20,9 +20,9 @@
 		* Free Software Foundation's GNU AGPL v3.0 (http://www.gnu.org/licenses/agpl-3.0.html)
 
 * ## jQuery
-	* Description
+	* **Description**
 		* JavaScript library for HTML document traversal/manipulation and event handling
-	* Usage
+	* **Usage**
 		* Cella uses jQuery for access and modification of HTML document elements - e.g. adding button labels, appending tables, changing button colour on click, etc. It provides a very simple and easy-to-use API, and is very helpful when modifying HTML tables (used to display cellular automata).
-	* Licensing
+	* **Licensing**
 		* MIT license (http://opensource.org/licenses/MIT)
