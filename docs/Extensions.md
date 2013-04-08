@@ -2,8 +2,8 @@
 # Extensions
 ------------
 
-## Database
+* ## Database
 	* Publically viewable
 	* Users can upload rulesets/maps
 
-## UI
+* ## UI

@@ -3,6 +3,7 @@ ca = {
 	rules: [],
 	autoTicking: false,
 	tickInterval: 100,
+	tickCount: 0,
 	
 	printToPage: function()
 	{
@@ -47,6 +48,12 @@ ca = {
 				this.map.cells[i][j] = result;
 			}
 		}
+
+		// Increment tick count
+		this.tickCount++;
+
+		// Update the tick count display
+		$("#pTickCount").text(this.tickCount);
 	},
 
 	getSurrounding: function(counts, oldCells, i, j)
