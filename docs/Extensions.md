@@ -12,7 +12,7 @@
 
 * ## Database
 	* **Public**
-		* Initially, we had hoped to create a publically viewable database. This would be populated by user submissions (anonymous or specified name) of map configurations and rule sets. Currently, the database is in place (using MongoDB), and we DO have drop-down lists that are populated by the local database. But, in reality, it would needed to be hosted on a server, and we would need to create a submission page. **add more to describe how to implement this**
+		* Initially, we had hoped to create a publically viewable database. This would be populated by user submissions (anonymous or specified name) of map configurations and rule sets. Currently, the database is in place (using MongoDB), and we DO have drop-down lists that are populated by the local database. But, in reality, it would needed to be hosted on a server, and we would need to create a submission page. With user input possible comes the need for added security. We would need to clean the received data first before attempting to parse it to add to the database. We would most likely use a whitelist of accetable formats to prevent script insertion. **add more to describe how to implement this**
 
 	* **Fields**
 		* Adding a rating or feedback field to the public database would be good improvement. Setting this up would essentially create leaderboards - users could see the most popular/interesting rulesets and configurations, and download and run them. A further addition would be editing downloaded configurations/rule sets and re-submitting them. **add more to describe how to implement this possibly**
