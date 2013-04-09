@@ -51,3 +51,14 @@
 	background-color: #FF6600;
 	color: #000000;
 }
+
+#btnAddRule
+{
+	margin-top: 10px;
+	margin-bottom: 6px;
+}
+
+.divRule
+{
+	margin-top: 4px;
+}

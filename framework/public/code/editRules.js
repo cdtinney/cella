@@ -17,7 +17,7 @@ function addRule()
 	$(div).append(surroundButton);
 	$(div).append(resultButton);
 
-	$(targetButton).append('Target');
+	$(targetButton).append('target');
 	$(targetButton).attr("onclick", "toggleButtonCell(this);");
 	$(targetButton).attr("class", "state0");
 
@@ -26,11 +26,11 @@ function addRule()
 		$(ddlSurround).append('<option>' + i + '</option>');
 	}
 
-	$(surroundButton).append('Surrounding');
+	$(surroundButton).append('surrounding');
 	$(surroundButton).attr("onclick", "toggleButtonCell(this);");
 	$(surroundButton).attr("class", "state0");
 
-	$(resultButton).append('Result');
+	$(resultButton).append('result');
 	$(resultButton).attr("onclick", "toggleButtonCell(this);");
 	$(resultButton).attr("class", "state0");
 
@@ -152,7 +152,14 @@ function saveRules()
 	});
 
 	rulesToSave.name = $('#txtName').val();
-	$.post('/mapRules', rulesToSave, function()
+
+	// Check the save name is non-empty
+	if (rulesToSave.name == "")
+		alert('Empty save names are not allowed!');
+	else
 	{
-	});
+		$.post('/mapRules', rulesToSave, function(data)
+		{
+		});
+	}
 }

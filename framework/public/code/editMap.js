@@ -8,9 +8,15 @@ function saveMap()
 	mapToSave = {};
 	mapToSave.cells = editableMap.cells;
 	mapToSave.name = $('#txtName').val();
-	$.post('/mapCells', mapToSave, function()
+
+	if (mapToSave.name == "")
+		alert('Empty save names are not allowed!');
+	else
 	{
-	});
+		$.post('/mapCells', mapToSave, function()
+		{
+		});
+	}
 }
 
 function increaseWidth()
