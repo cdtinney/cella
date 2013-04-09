@@ -31,8 +31,8 @@ ca = {
 			{
 
 				var counts = [0,0,0,0,0,0,0,0,0,0];
-				//this.getSurrounding(counts, oldCells, i, j);
-				this.getSurroundingWrap(counts, oldCells, i, j);
+				this.getSurrounding(counts, oldCells, i, j);
+				//this.getSurroundingWrap(counts, oldCells, i, j);
 
 				var result = oldCells[i][j];
 				for (var z = 0; z < this.rules.length; z++)

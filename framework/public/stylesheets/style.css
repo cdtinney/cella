@@ -7,10 +7,31 @@ html {
 	background-color: #000000;
 }
 
-.homepage {
-	text-decoration: none;
+.aHome {
+	/* Positioning */
+	position: absolute;
+	top: 4px;
+
+	/* Text & Colour */
+	font-family:"Arial", sans-serif;
+	font-size: 220%;
 	color: #FFFFFF;
+	text-decoration: none;
 }
+
+.aNav {
+	/* Positioning */
+	position: absolute;
+	left: 90px;
+	top: 14px;
+
+	/* Text & Colour */
+	font-family:"Arial", sans-serif;
+	font-size: 150%;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
 
 .level2bar {
 	/* Positioning */
