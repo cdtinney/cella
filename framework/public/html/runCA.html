@@ -23,6 +23,7 @@
    		 <div class = "level2bar">
 
 			<div class = "menuBar"> 
+
 				<button type="button" onClick="autoTick();">
 					auto (on/off)
 				</button>
@@ -48,13 +49,22 @@
 		</div>
 
 		<div class = "level3bar">
+
 			<div class = "countBar">
-				<a class="countText"> current tick count: </a>
-				<a id="aTickCount" class="countText">0</a>
+				<a class="countText"> generation: </a>
+				<a id="aGenCount" class="countText">0</a>
+
+				<a style="color:white">|</a>
 
 				<a class="countText"> current population: </a>
 				<a id="aPopulationCount" class="countText">0</a>
 			</div>
+
+			<form>
+				<input type="checkbox" id="chkboxWrap" name="wrapping"></input>
+				<label class="countText"> toroidal wrapping </label>
+			</form>
+
 		</div>
 
 		<div id="divCA"> </div>

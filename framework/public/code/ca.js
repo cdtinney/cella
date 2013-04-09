@@ -3,7 +3,7 @@ ca = {
 	rules: [],
 	autoTicking: false,
 	tickInterval: 100,
-	tickCount: 0,
+	generationCount: 0,
 	
 	printToPage: function()
 	{
@@ -31,8 +31,12 @@ ca = {
 			{
 
 				var counts = [0,0,0,0,0,0,0,0,0,0];
-				this.getSurrounding(counts, oldCells, i, j);
-				//this.getSurroundingWrap(counts, oldCells, i, j);
+
+				// Check if the user has selected wrapping
+				if ($("#chkboxWrap").prop('checked') == true)
+					this.getSurroundingWrap(counts, oldCells, i, j);
+				else
+					this.getSurrounding(counts, oldCells, i, j);
 
 				var result = oldCells[i][j];
 				for (var z = 0; z < this.rules.length; z++)
@@ -49,11 +53,11 @@ ca = {
 			}
 		}
 
-		// Increment tick count
-		this.tickCount++;
+		// Increment generation (total # of ticks) count
+		this.generationCount++;
 
 		// Update the tick count display
-		$("#aTickCount").text(this.tickCount);
+		$("#aGenCount").text(this.generationCount);
 
 		// Update the population count display
 		$("#aPopulationCount").text(this.getPopulation());
@@ -110,10 +114,12 @@ ca = {
 			counts[oldCells[i + 1][j - 1]]++;
 		else
 		{
-			if (j <= 0 && i > oldCells.length - 1)
+			if (j <= 0 && i >= oldCells.length - 1)
 				counts[oldCells[0][oldCells[0].length - 1]]++;
-			if (j > 0 && i > oldCells.length - 1)
+
+			if (j > 0 && i >= oldCells.length - 1)
 				counts[oldCells[0][j -1]]++;
+
 			if (j < 0 && i < oldCells.length - 1)
 				counts[oldCells[i + 1][oldCells[i].length - 1]]++;
 		}
@@ -125,8 +131,10 @@ ca = {
 		{
 			if (j >= oldCells[i].length - 1 && i >= oldCells.length - 1)
 				counts[oldCells[0][0]]++;
+
 			if (j < oldCells[i].length - 1 && i >= oldCells.length - 1)
 				counts[oldCells[0][j + 1]]++;
+
 			if (j >= oldCells[i].length - 1 && i < oldCells.length - 1)
 				counts[oldCells[i + 1][0]]++;
 		}
@@ -138,8 +146,10 @@ ca = {
 		{
 			if (i <= 0 && j <= 0)
 				counts[oldCells[oldCells.length - 1][0]]++;
+
 			if (i <= 0 && j < oldCells[i].length - 1)
 				counts[oldCells[oldCells.length - 1][j + 1]]++;
+
 			if (i > 0 && j >= oldCells[i].length - 1)
 				counts[oldCells[i - 1][0]]++;
 		}
@@ -151,8 +161,10 @@ ca = {
 		{
 			if (j <= 0 && i <= 0)
 				counts[oldCells[oldCells.length-1][oldCells[i].length-1]]++;
+
 			if (j <= 0 && i > 0)
 				counts[oldCells[i - 1][oldCells[i].length - 1]]++;
+
 			if (j > 0 && i <= 0)
 				counts[oldCells[oldCells.length-1][j - 1]]++;
 		}
