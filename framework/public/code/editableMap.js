@@ -20,26 +20,38 @@ editableMap = {
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
 
+	// Prints the cells to the page
 	printToPage: function()
 	{ 
 		$("#divCA").html();
 
+		// Create a table element to contain the cells
 		var table = document.createElement('table');
 		$(table).attr("id", "tblCA");
 
+		// For each row
 		for (var i = 0; i < this.cells.length; i++)
 		{
+			// Create + add a row element
 			var tr= document.createElement('tr');
 			$(table).append(tr);
+			
+			// For each column
 			for (var j = 0; j < this.cells[i].length; j++)
 			{
+				// Create + add a column element
 				var td = document.createElement('td');
 				$(tr).append(td);
+				
+				// Set the class of the cell depending on the type
 				$(td).attr("class", "editCell" + this.cells[i][j]);
 				$(td).attr("id", "td" + i + "-" + j);
 				$(td).attr("i", i);
 				$(td).attr("j", j);
+
 				that = this;
+				
+				// On element click, iterate through the types (colours)
 				$(td).on('click', function(eventData){
 				
 					var num = that.cells[$(this).attr('i')][$(this).attr('j')];
@@ -58,9 +70,14 @@ editableMap = {
 			}
 		}		
 
+		// Add the table to the div
 		$("#divCA").html(table);
 	},
 
+	/*
+	 * Updates the cell types
+	 */
+	 
 	refresh: function()
 	{		
 		for (var i = 0; i < this.cells.length; i++)

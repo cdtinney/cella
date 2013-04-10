@@ -20,27 +20,39 @@ map = {
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
 
+	// Prints the cells to the page
 	printToPage: function()
 	{ 
+		// Create a table element to contain the cells
 		var table = document.createElement('table');
 		$(table).attr("id", "tblCA");
 
+		// For each row, add an element
 		for (var i = 0; i < this.cells.length; i++)
 		{
 			var tr= document.createElement('tr');
 			$(table).append(tr);
+			
+			// For each column, add an element
 			for (var j = 0; j < this.cells[i].length; j++)
 			{
 				var td = document.createElement('td');
 				$(tr).append(td);
+				
+				// Set the class depending on cell type
 				$(td).attr("class", "cell" + this.cells[i][j]);
 				$(td).attr("id", "td" + i + "-" + j);
 			}
 		}		
 
+		// Add the table to the div
 		$("#divCA").html(table);
 	},
 
+	/*
+	 * Updates the cell types
+	 */
+	
 	refresh: function()
 	{		
 		for (var i = 0; i < this.cells.length; i++)

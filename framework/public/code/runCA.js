@@ -14,7 +14,10 @@ function getParameterByName(name)
     return decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-// on document ready
+/*
+ * On document ready
+ */
+ 
 $(document).ready(function()
 {
 	var mapId = getParameterByName('map');
@@ -44,12 +47,16 @@ $(document).ready(function()
 	});
 });
 
-// tick ca automatically
+/*
+ * Tick the CA automatically
+ */
+ 
 function autoTick()
 {
-	// flip the boolean
+	// Flip the boolean representing current state
 	ca.autoTicking = !ca.autoTicking;
 	
+	// If the user has selected auto ticking
 	if (ca.autoTicking)
 	{
 		tickLoop = setInterval(function()

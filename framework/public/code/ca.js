@@ -5,11 +5,13 @@ ca = {
 	tickInterval: 100,
 	generationCount: 0,
 	
+	// Print the map to page
 	printToPage: function()
 	{
 		this.map.printToPage();
 	},
 
+	// Refresh the map (i.e. update cell states)
 	refresh: function()
 	{
 		this.map.refresh();
@@ -18,6 +20,7 @@ ca = {
 	// Single tick
 	tick: function()
 	{
+		// Make a copy of the cells array
 		var oldCells = this.map.cells.slice();
 		
 		for (var i = 0; i < oldCells.length; i++)
@@ -109,7 +112,7 @@ ca = {
 		else
 			counts[oldCells[oldCells.length - 1][j]]++;
 		
-		// top right
+		// top right (fixed?)
 		if (j > 0 && i < oldCells.length - 1)
 			counts[oldCells[i + 1][j - 1]]++;
 		else

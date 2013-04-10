@@ -3,10 +3,16 @@ $(document).ready(function()
 	editableMap.printToPage();
 });
 
+/*
+ * Saves the current map to the database
+ */
 function saveMap()
 {
+	// Create an empty object
 	mapToSave = {};
+	// Set the cells to the editable map cells
 	mapToSave.cells = editableMap.cells;
+	// Set the name to the user-specified name
 	mapToSave.name = $('#txtName').val();
 
 	if (mapToSave.name == "")
@@ -19,6 +25,10 @@ function saveMap()
 	}
 }
 
+/*
+ * Increases the width of the editableMap grid
+ */
+ 
 function increaseWidth()
 {
 	for (var i = 0; i < editableMap.cells.length; i++)
@@ -28,6 +38,10 @@ function increaseWidth()
 	editableMap.printToPage();
 }
 
+/*
+ * Increases the height of the editableMap grid
+ */
+ 
 function increaseHeight()
 {
 	cellRow = [];
