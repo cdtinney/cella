@@ -107,7 +107,7 @@ app.get('/mapCells', function(req, res){
   var query = url_parts.query;
   Server = mongo.Server;
   Db = mongo.Db;
-  if (query['id'] != ''){
+  if (query['id'] != '' && query['id'] != 'null'){
 	  var server = new Server('localhost', 27017, {auto_reconnect: true});
 	  var db = new Db('celladb', server);
 	  db.open(function(err, db) {
@@ -116,20 +116,23 @@ app.get('/mapCells', function(req, res){
 			var BSON = mongo.BSONPure;
 			if (query['id'].length > 0)
 			{
-				var o_id = new BSON.ObjectID(query['id']);
-				var cursor = collectionref.find({_id: o_id});
-				cursor.toArray(function(err, docs) {
-				  if (docs[0] != null && docs[0] != undefined)
-				  {
-					console.log(docs[0].cells);
-					res.send(docs[0].cells);
-				  }
-				});
+				if (query['id'].length == 12)
+				{
+					var o_id = new BSON.ObjectID(query['id']);
+					var cursor = collectionref.find({_id: o_id});
+					cursor.toArray(function(err, docs) {
+					  if (docs[0] != null && docs[0] != undefined)
+					  {
+						console.log(docs[0].cells);
+						res.send(docs[0].cells);
+					  }
+					});
+				}
 			}
 		  });
 		}
 	  });
-	}
+  }
 });
 
 /*
@@ -142,14 +145,14 @@ app.get('/mapRules', function(req, res){
   var query = url_parts.query;
   Server = mongo.Server;
   Db = mongo.Db;
-  if (query['id'] != ''){
+  if (query['id'] != '' && query['id'] != 'null'){
 	  var server = new Server('localhost', 27017, {auto_reconnect: true});
 	  var db = new Db('celladb', server);
 	  db.open(function(err, db) {
 		if(!err) {         
 		  db.collection('rules', function(err, collectionref) {
 			var BSON = mongo.BSONPure;
-			if (query['id'].length > 0)
+			if (query['id'].length == 12)
 			{
 				var o_id = new BSON.ObjectID(query['id']);
 				var cursor = collectionref.find({_id: o_id});
@@ -164,7 +167,7 @@ app.get('/mapRules', function(req, res){
 		  });
 		}
 	  });
-	}
+  }
 });
 
 /*
