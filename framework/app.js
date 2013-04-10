@@ -91,27 +91,29 @@ app.get('/mapCells', function(req, res){
   var query = url_parts.query;
   Server = mongo.Server;
   Db = mongo.Db;
-  var server = new Server('localhost', 27017, {auto_reconnect: true});
-  var db = new Db('celladb', server);
-  db.open(function(err, db) {
-    if(!err) {         
-      db.collection('maps', function(err, collectionref) {
-        var BSON = mongo.BSONPure;
-		if (query['id'].length > 0)
-		{
-			var o_id = new BSON.ObjectID(query['id']);
-			var cursor = collectionref.find({_id: o_id});
-			cursor.toArray(function(err, docs) {
-			  if (docs[0] != null && docs[0] != undefined)
-			  {
-				console.log(docs[0].cells);
-				res.send(docs[0].cells);
-			  }
-			});
+  if (query['id'] != ''){
+	  var server = new Server('localhost', 27017, {auto_reconnect: true});
+	  var db = new Db('celladb', server);
+	  db.open(function(err, db) {
+		if(!err) {         
+		  db.collection('maps', function(err, collectionref) {
+			var BSON = mongo.BSONPure;
+			if (query['id'].length > 0)
+			{
+				var o_id = new BSON.ObjectID(query['id']);
+				var cursor = collectionref.find({_id: o_id});
+				cursor.toArray(function(err, docs) {
+				  if (docs[0] != null && docs[0] != undefined)
+				  {
+					console.log(docs[0].cells);
+					res.send(docs[0].cells);
+				  }
+				});
+			}
+		  });
 		}
-      });
-    }
-  });
+	  });
+	}
 });
 
 app.get('/mapRules', function(req, res){
@@ -120,27 +122,29 @@ app.get('/mapRules', function(req, res){
   var query = url_parts.query;
   Server = mongo.Server;
   Db = mongo.Db;
-  var server = new Server('localhost', 27017, {auto_reconnect: true});
-  var db = new Db('celladb', server);
-  db.open(function(err, db) {
-    if(!err) {         
-      db.collection('rules', function(err, collectionref) {
-        var BSON = mongo.BSONPure;
-		if (query['id'].length > 0)
-		{
-			var o_id = new BSON.ObjectID(query['id']);
-			var cursor = collectionref.find({_id: o_id});
-			cursor.toArray(function(err, docs) {
-			  if (docs[0] != null && docs[0] != undefined)
-			  {
-				console.log(docs[0].ruleset);
-				res.send(docs[0].ruleset);
-			  }
-			});
+  if (query['id'] != ''){
+	  var server = new Server('localhost', 27017, {auto_reconnect: true});
+	  var db = new Db('celladb', server);
+	  db.open(function(err, db) {
+		if(!err) {         
+		  db.collection('rules', function(err, collectionref) {
+			var BSON = mongo.BSONPure;
+			if (query['id'].length > 0)
+			{
+				var o_id = new BSON.ObjectID(query['id']);
+				var cursor = collectionref.find({_id: o_id});
+				cursor.toArray(function(err, docs) {
+				  if (docs[0] != null && docs[0] != undefined)
+				  {
+					console.log(docs[0].ruleset);
+					res.send(docs[0].ruleset);
+				  }
+				});
+			}
+		  });
 		}
-      });
-    }
-  });
+	  });
+	}
 });
 
 app.post('/mapCells', function(req, res){
