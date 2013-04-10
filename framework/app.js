@@ -1,5 +1,5 @@
 
-/**
+/*
  * Module dependencies.
  */
 
@@ -12,6 +12,10 @@ var express = require('express')
 
 var app = express();
 
+/*
+ * express configuration
+ */
+ 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -35,6 +39,10 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
+/*
+ * get list of map names
+ */
+ 
 app.get('/maps', function(req, res){
   Server = mongo.Server;
   Db = mongo.Db;
@@ -60,6 +68,10 @@ app.get('/maps', function(req, res){
   });
 });
 
+/*
+ * get list of ruleset names
+ */
+
 app.get('/rules', function(req, res){
   Server = mongo.Server;
   Db = mongo.Db;
@@ -84,6 +96,10 @@ app.get('/rules', function(req, res){
     }
   });
 });
+
+/*
+ * get map configuration
+ */
 
 app.get('/mapCells', function(req, res){
   var url = require('url');
@@ -116,6 +132,10 @@ app.get('/mapCells', function(req, res){
 	}
 });
 
+/*
+ * get ruleset
+ */
+
 app.get('/mapRules', function(req, res){
   var url = require('url');
   var url_parts = url.parse(req.url, true);
@@ -147,6 +167,10 @@ app.get('/mapRules', function(req, res){
 	}
 });
 
+/*
+ * save configuration
+ */
+
 app.post('/mapCells', function(req, res){
   console.log(req.body);
   Server = mongo.Server;
@@ -161,6 +185,10 @@ app.post('/mapCells', function(req, res){
     }
   });
 });
+
+/*
+ * save ruleset
+ */
 
 app.post('/mapRules', function(req, res){
   console.log(req.body);

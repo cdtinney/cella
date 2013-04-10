@@ -4,13 +4,13 @@
  
 $(document).ready(function()
 {
-	// Get the maps from the database
+	// Get the list of map names from the database
 	var mapOptions = $.get("/maps", function()
 	{
 		// Add the names of maps to the dropdown list
 		$("#ddlMaps").append(mapOptions.responseText);
 	});
-	// Get the rules from the database
+	// Get the list of rule names from the database
 	var rules = $.get("/rules", function()
 	{
 		// Add the names of rules to the dropdown list
