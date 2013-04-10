@@ -61,4 +61,5 @@
 .divRule
 {
 	margin-top: 4px;
+	z-order: -2;
 }
