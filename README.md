@@ -20,4 +20,4 @@ The third option allows the creation of custom rulesets. You may have as many ru
 
 ## notes
 
-MongoDB is included and configured in our repository.
+MongoDB is included and configured in our repository. It and node can both be run by running run_server.bat (if in Windows)
