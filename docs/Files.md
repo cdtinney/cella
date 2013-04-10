@@ -19,11 +19,11 @@
 	  </tr>
 
 	  <tr>
-	  	<td>runCA.js</td><td>description</td>
+	  	<td>runCA.js</td><td>Uses the id passes in through the query string to get initial configuration/ruleset from database. Then, it runs the CA.</td>
 	  </tr>
 	  
 	  <tr>
-	  	<td>selectCA.js</td><td>description</td>
+	  	<td>selectCA.js</td><td>Populates the selectCA.html page dropdown lists with map names & rule set names loaded from the database. When the user selects run, the page is re-directed to runCA.html with the selected map & ruleset ids in the query string.</td>
 	  </tr>
 
 	  <tr>
@@ -31,11 +31,11 @@
 	  </tr>
 
 	  <tr>
-	  	<td>editMap.js</td><td>description</td>
+	  	<td>editMap.js</td><td>Provides functionality for editMap.html. Allows the user to save maps to the database, and increase map heigth/width.</td>
 	  </tr>
 
 	  <tr>
-	  	<td>editRules.js</td><td>description</td>
+	  	<td>editRules.js</td><td>Provides functionality for editRules.html. Allows new rules to be added, modified, and saved to the database.</td>
 	  </tr>
 
 	</table>
@@ -103,7 +103,7 @@
 		</tr>
 
 		<tr>
-		  	<td>app.js</td><td>Express-generated app, with modifications.</td>
+		  	<td>app.js</td><td>Express-generated app, with modifications. Allows retrieval of maps & rulesets fromt he database, and storage of maps & rulesets to the database. </td>
 		</tr>
 
 		<tr>
