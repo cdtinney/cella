@@ -116,7 +116,7 @@ app.get('/mapCells', function(req, res){
 			var BSON = mongo.BSONPure;
 			if (query['id'].length > 0)
 			{
-				if (query['id'].length == 12)
+				if (query['id'].length == 24)
 				{
 					var o_id = new BSON.ObjectID(query['id']);
 					var cursor = collectionref.find({_id: o_id});
@@ -152,7 +152,7 @@ app.get('/mapRules', function(req, res){
 		if(!err) {         
 		  db.collection('rules', function(err, collectionref) {
 			var BSON = mongo.BSONPure;
-			if (query['id'].length == 12)
+			if (query['id'].length == 24)
 			{
 				var o_id = new BSON.ObjectID(query['id']);
 				var cursor = collectionref.find({_id: o_id});
