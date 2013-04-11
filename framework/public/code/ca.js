@@ -4,6 +4,7 @@ ca = {
 	autoTicking: false,
 	tickInterval: 100,
 	generationCount: 0,
+	maxPopulation: 0,
 	
 	// Print the map to page
 	printToPage: function()
@@ -62,8 +63,18 @@ ca = {
 		// Update the tick count display
 		$("#aGenCount").text(this.generationCount);
 
+		// Get the current population
+		var currPopulation = this.getPopulation();
+
 		// Update the population count display
-		$("#aPopulationCount").text(this.getPopulation());
+		$("#aPopulationCount").text(currPopulation);
+
+		// Check if current population is greater than max populaton
+		if (currPopulation > this.maxPopulation)
+			this.maxPopulation = currPopulation;
+
+		// Set max population
+		$("#aMaxPopulation").text(this.maxPopulation);
 	},
 
 	getSurrounding: function(counts, oldCells, i, j)

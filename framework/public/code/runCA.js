@@ -45,6 +45,9 @@ $(document).ready(function()
 			$("#aPopulationCount").text(ca.getPopulation());
 		});
 	});
+
+	// Set initial neighbourhood type
+	$('#rNeumann').prop('checked', true);
 });
 
 /*

@@ -58,7 +58,24 @@
 
 				<a class="countText"> current population: </a>
 				<a id="aPopulationCount" class="countText">0</a>
+
+				<a style="color:white">|</a>
+
+				<a class="countText"> max population: </a>
+				<a id="aMaxPopulation" class="countText">0</a>
 			</div>
+
+
+			<form style="margin-left: 8px; margin-top:4px">
+				<label class="countText"> Neighbourhood: </label>
+				<label class="countText">
+					<input type="radio" name"nbrhood" id="rNeumann"/> von Neumann (8 cells)
+				</label>
+
+				<label class="countText">
+					<input type="radio" name="nbrhood" id="rMoore"/> Moore (4 cells)
+				</label>
+			</form>
 
 			<form>
 				<input type="checkbox" id="chkboxWrap" name="wrapping"></input>
