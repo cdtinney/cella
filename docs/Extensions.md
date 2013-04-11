@@ -9,7 +9,7 @@
 		* An interesting addition to CA simulation could be experimenting with different shapes of grids - triangles, circles, or even user-defined shapes. Even more interesting would be different shaped cells, or a 3-D grid. However, this would radically change the computation method - computating boundary behaviour for 3-D, non-rectangluar cells, for example, would be significantly more complicated. Due to the improvements of browser technology, this could (to our knowledge) be written in JavaScript - but writing it ourself could be a pipe dream. This would involve some complex geometry. 
 	* **Cell Neighbourhoods**
 		* A relatively easy extension is the option for the neighbourhood computation. Currently, _cella_ checks 8 cells - the cardinal directions and the diagonals - and computes the state based upon the rule set. This is known as the Moore neighbourhod. Optionally (e.g. a checkbox on the run CA page), the user could select the von Neumann neighbourhood, which is only the 4 cardinal directions. This would involve creating two separate functions for computing the surrounding cells (the Moore neighbourhood function is in place), and calling either depending on the user input.
-	* ** Live Editing**
+	* **Live Editing**
 		* A nifty addition would be the ability to modify rule sets while the cellular automata is running. The user could, in real-time, see the changes they are making be reflected in the simulation. This would increase knowledge of how cell behaviour. Furthermore, cellular automata state could be saved for later use.
 
 * ## Database
