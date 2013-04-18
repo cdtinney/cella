@@ -1,6 +1,6 @@
 {
   "name": "cella",
-  "subdomain" :"modified-subdomain",
+  "subdomain" :"cella-subdomain",
   "version": "0.0.1",
   "private": true,
   "scripts": {
