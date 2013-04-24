@@ -4,7 +4,7 @@
 
 ## by: KnightsWhoSayNi
 
-### Adam Bennett (#100852702), Colin Tinney (#100852617), Brayden Girard (dropped)
+### Colin Tinney, Adam Bennett
 
 ## summary
 
